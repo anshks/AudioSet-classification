@@ -12,5 +12,9 @@ venv/
 # Ignore log files
 *.log
 
+# Ignore large tensors
+*.pt
+*.pth
+
 # Ignore Python notebook checkpoints
 *.ipynb_checkpoints
