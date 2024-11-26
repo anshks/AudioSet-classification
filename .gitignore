@@ -1,0 +1,20 @@
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore environment files
+.env
+venv/
+
+# Ignore system files
+.DS_Store
+
+# Ignore log files
+*.log
+
+# Ignore PyTorch tensor files in Data directory
+Data/*.pt
+Data/*.pth
+
+# Ignore Python notebook checkpoints
+*.ipynb_checkpoints
