@@ -12,9 +12,5 @@ venv/
 # Ignore log files
 *.log
 
-# Ignore PyTorch tensor files in Data directory
-Data/*.pt
-Data/*.pth
-
 # Ignore Python notebook checkpoints
 *.ipynb_checkpoints
