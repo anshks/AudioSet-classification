@@ -11,6 +11,7 @@
 import torch
 import torch.nn as nn
 from torch.nn import LayerNorm
+from tqdm import tqdm
 import torchaudio.compliance.kaldi as ta_kaldi
 
 from backbone import (
@@ -114,7 +115,7 @@ class BEATs(nn.Module):
         )
         padding_mask = padding_mask.all(-1)
         return padding_mask
-
+ 
     def preprocess(
             self,
             source: torch.Tensor,
@@ -122,7 +123,7 @@ class BEATs(nn.Module):
             fbank_std: float = 6.55582,
     ) -> torch.Tensor:
         fbanks = []
-        for waveform in source:
+        for i, waveform in tqdm(enumerate(source)):
             waveform = waveform.unsqueeze(0) * 2 ** 15
             fbank = ta_kaldi.fbank(waveform, num_mel_bins=128, sample_frequency=16000, frame_length=25, frame_shift=10)
             fbanks.append(fbank)
